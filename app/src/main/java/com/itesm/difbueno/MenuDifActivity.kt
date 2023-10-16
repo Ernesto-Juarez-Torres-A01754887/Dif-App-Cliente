@@ -54,8 +54,13 @@ class MenuDifActivity : AppCompatActivity() {
         }
 
         buttonSalir.setOnClickListener {
-            // Lógica para manejar el clic en el botón "Mapa"
-            // Por ejemplo, puedes iniciar una nueva actividad o realizar alguna acción.
+            // Lógica para manejar el clic en el botón "Salir"
+            val buttonSalir = findViewById<Button>(R.id.buttonSalir)
+
+            buttonSalir.setOnClickListener {
+                // Cierra la aplicación completamente
+                System.exit(0)
+            }
         }
     }
 }
