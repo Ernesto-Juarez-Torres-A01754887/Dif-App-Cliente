@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,7 +9,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -18,19 +19,116 @@
             <TextView
                 android:id="@+id/textView17"
                 android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:text="Derechos y Obligaciones del Comensal"
+                android:layout_height="76dp"
+                android:gravity="center"
+                android:text="Derechos y obligaciones de las personas que asisten a los Comedores Comunitarios"
                 android:textColor="#E91E63"
-                android:textSize="36sp"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="4.5.1 Derechos"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView18"
-                android:layout_width="385dp"
-                android:layout_height="656dp"
-                android:layout_marginLeft="10dp"
-                android:text="POLÍTICAS INTERNAS"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="a) Recibir un trato digno, respetuoso, oportuno, y sin discriminación;" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="b) Acceder a la información necesaria sobre el Programa;" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="c) Proteger sus datos personales de acuerdo a la normatividad aplicable;" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="d) Recibir una ración de comida al día de alimentos preparados en el Comedor, hasta 5 días a la semana;" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="e) Presentar ante la Comisión de Alimentación del Comité Comunitario de su localidad, su solicitud de inclusión al Programa;" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="f) Participar en las actividades asociadas al Programa;" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="4.5.2 Obligaciones"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="a) Cubrir la cuota establecida por el Comité Comunitario, con recursos económicos, autorizado por el Comité;" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="b) Acatar las medidas higiénicas y sanitarias establecidas en el Comedor;" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="c) Notificar por cualquier medio a la Comisión de Alimentación del Comité Comunitario, en caso de no poder asistir al Comedor, por enfermedad o alguna causa excepcional. Faltar más de 5 días consecutivos sin notificar a la Comisión de Alimentación es causal de suspensión automática del Listado de personas que asisten a los Comedores; podrá solicitar su reingreso de conformidad a lo establecido en el numeral 4.5.1, inciso e);" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="d) Asistir de manera periódica al Comedor, cuando menos 15 días al mes, registrando su asistencia en el Formato respectivo;" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="e) Validar su asistencia mensual mediante firma o huella digital;" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="f) Mantener una actitud de respeto hacia las demás personas que asisten a los Comedores y hacia las personas integrantes de la Comisión de Alimentación;" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="g) Cumplir con lo dispuesto en el presente instrumento normativo;" />
         </LinearLayout>
     </ScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
