@@ -12,7 +12,17 @@
     <!-- Título "Mapa Comedores" en color rosa -->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent" >
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:clickable="true"
+            app:srcCompat="@drawable/boton" />
+    </ScrollView>
 
     <TextView
         android:id="@+id/textViewTitulo"
