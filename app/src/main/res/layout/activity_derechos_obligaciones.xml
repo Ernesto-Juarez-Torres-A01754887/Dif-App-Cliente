@@ -26,10 +26,6 @@
                 android:textSize="28sp"
                 android:textStyle="bold" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="16dp" />
-
 
             <TextView
                 android:layout_width="match_parent"
@@ -129,6 +125,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:text="g) Cumplir con lo dispuesto en el presente instrumento normativo;" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Regresar al Menú"
+                android:backgroundTint="#1976D2"
+                android:textColor="#fefefe"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginBottom="16dp"
+                android:id="@+id/buttonRegresarMenu" />
+
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

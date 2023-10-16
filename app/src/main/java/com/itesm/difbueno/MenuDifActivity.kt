@@ -50,7 +50,8 @@ class MenuDifActivity : AppCompatActivity() {
 
         buttonDerechosObligaciones.setOnClickListener {
             // Lógica para manejar el clic en el botón "Mapa"
-            // Por ejemplo, puedes iniciar una nueva actividad o realizar alguna acción.
+            val intent = Intent(this, DerechosObligaciones::class.java)
+            startActivity(intent)
         }
 
         buttonSalir.setOnClickListener {
