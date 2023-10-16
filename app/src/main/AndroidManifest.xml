@@ -42,6 +42,10 @@
             android:name=".EncuestaSatisfaccion">
 
         </activity>
+        <activity
+            android:name=".MapaComedor">
+
+        </activity>
 
     </application>
 
