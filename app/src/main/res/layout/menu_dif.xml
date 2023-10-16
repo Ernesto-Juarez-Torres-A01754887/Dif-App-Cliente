@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="16dp"
+    tools:context=".MenuDifActivity">
+
+    <!-- Título MENU APP DIF en color rosa -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MENU Dif+ App"
+        android:textColor="#E02A5C"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp" />
+
+    <!-- Imagen -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_below="@+id/textViewTitle"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
+
+    <!-- Botón QR -->
+    <Button
+        android:id="@+id/buttonQR"
+        android:layout_width="264dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#8f4a8b"
+        android:text="QR"
+        android:textColor="#fefefe"
+        app:iconTint="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/buttonMapa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <!-- Botón Mapa -->
+    <Button
+        android:id="@+id/buttonMapa"
+        android:layout_width="264dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Mapa"
+        android:backgroundTint="#199fc8"
+        android:textColor="#fefefe"
+        app:layout_constraintBottom_toTopOf="@+id/buttonEncuesta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonQR" />
+
+    <!-- Botón Encuesta -->
+    <Button
+        android:id="@+id/buttonEncuesta"
+        android:layout_width="264dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="205dp"
+        android:text="Encuesta"
+        android:backgroundTint="#eb5a56"
+        android:textColor="#fefefe"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonMapa" />
+
+    <!-- Botón Salir (en la esquina inferior izquierda) -->
+    <Button
+        android:id="@+id/buttonSalir"
+        android:layout_width="127dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#FA63F2"
+        android:text="Salir"
+        android:textColor="#fefefe"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Botón Derechos y Obligaciones (en la esquina inferior derecha) -->
+    <Button
+        android:id="@+id/buttonDerechosObligaciones"
+        android:layout_width="136dp"
+        android:layout_height="57dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#c6899e"
+        android:text="Derechos y Obligaciones"
+        android:textColor="#fefefe"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
