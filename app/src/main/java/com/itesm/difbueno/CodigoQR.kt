@@ -60,7 +60,7 @@ class CodigoQR : AppCompatActivity() {
                 genero?.let { dataList.add(it) }
                 circunstancia?.let { dataList.add(it) }
 
-                val data = dataList.joinToString("|")
+                val data = dataList.joinToString(",")
                 qrCodeBitmap = generateQRCode(data)
             }
 
