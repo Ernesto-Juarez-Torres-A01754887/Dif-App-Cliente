@@ -133,7 +133,7 @@
             android:layout_marginTop="16dp"
             android:text="Acepto los términos y condiciones"
             android:textColor="#BA00FF"
-
+            android:clickable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextCircunstancia" />

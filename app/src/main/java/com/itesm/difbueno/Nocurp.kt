@@ -12,6 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
+
 class Nocurp : AppCompatActivity() {
 
     private lateinit var editTextNombre: EditText
@@ -20,7 +21,9 @@ class Nocurp : AppCompatActivity() {
     private lateinit var editTextGenero: EditText
     private lateinit var editTextCircunstancia: EditText
     private lateinit var checkBoxTerms: CheckBox
-    private var avanzoMasAlla = false
+    private lateinit var termsTextView: TextView
+    private var termsAccepted = false
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,9 +41,17 @@ class Nocurp : AppCompatActivity() {
             // Si se marca o desmarca el CheckBox
             val isChecked = checkBoxTerms.isChecked
             // Puedes realizar acciones basadas en el estado del CheckBox aquí
-            showTermsDialog()
-            avanzoMasAlla = true
         }
+        // Dentro de la función onCreate de la actividad Nocurp
+        val textViewTerms = findViewById<TextView>(R.id.checkBoxTerms)
+        textViewTerms.setOnClickListener {
+            showTermsDialog()
+        }
+
+        checkBoxTerms.setOnCheckedChangeListener { _, isChecked ->
+            termsAccepted = isChecked
+        }
+
 
         val buttonRegistro = findViewById<Button>(R.id.buttonRegistro)
         buttonRegistro.setOnClickListener {
@@ -66,6 +77,8 @@ class Nocurp : AppCompatActivity() {
         }
     }
 
+
+
     private fun areFieldsValid(): Boolean {
         val nombre = editTextNombre.text.toString()
         val apellido = editTextApellido.text.toString()
@@ -87,5 +100,6 @@ class Nocurp : AppCompatActivity() {
         closeButton.setOnClickListener {
             dialog.dismiss()
         }
+        dialog.show()
     }
 }

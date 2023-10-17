@@ -2,16 +2,10 @@ package com.itesm.difbueno
 
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.Color
 import android.os.Bundle
 import android.widget.Button
-import android.widget.ImageView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.zxing.BarcodeFormat
-import com.google.zxing.MultiFormatWriter
-import com.google.zxing.common.BitMatrix
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+
 
 class MenuDifActivity : AppCompatActivity() {
     // Declarar una constante para manejar el resultado del código QR
@@ -30,10 +24,7 @@ class MenuDifActivity : AppCompatActivity() {
         val buttonEncuesta = findViewById<Button>(R.id.buttonEncuesta)
         val buttonDerechosObligaciones = findViewById<Button>(R.id.buttonDerechosObligaciones)
         val buttonSalir = findViewById<Button>(R.id.buttonSalir)
-        val intent = Intent(Intent.ACTION_MAIN)
-        intent.addCategory(Intent.CATEGORY_HOME)
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-        startActivity(intent)
+
 
         buttonQR.setOnClickListener {
                 val intent = Intent(this, CodigoQR::class.java)
@@ -60,10 +51,10 @@ class MenuDifActivity : AppCompatActivity() {
 
         buttonSalir.setOnClickListener {
             // Lógica para manejar el clic en el botón "Salir"
-            val intent = Intent(Intent.ACTION_MAIN)
-            intent.addCategory(Intent.CATEGORY_HOME)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-            startActivity(intent)
+            //val intent = Intent(Intent.ACTION_MAIN)
+            //intent.addCategory(Intent.CATEGORY_HOME)
+            //intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            //startActivity(intent)
         }
     }
 }

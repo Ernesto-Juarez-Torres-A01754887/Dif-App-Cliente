@@ -96,6 +96,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/alfa_slab_one"
         android:text="Acepto los Términos y condiciones"
+        android:clickable="true"
         android:textAlignment="textStart"
         android:textColor="#BA00FF"
         android:textSize="16sp"

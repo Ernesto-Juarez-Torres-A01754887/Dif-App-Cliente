@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var editTextCURP: EditText
     private lateinit var checkBoxTerms: CheckBox
 
+
     companion object {
         private const val PREFS_NAME = "MySharedPreferences"
         private const val IS_LOGGED_IN = "isLoggedIn"
@@ -35,11 +36,6 @@ class MainActivity : AppCompatActivity() {
 
         editTextCURP = findViewById(R.id.editTextCURP)
         checkBoxTerms = findViewById(R.id.checkBoxTerms)
-
-        val textViewTerms = findViewById<TextView>(R.id.checkBoxTerms)
-        textViewTerms.setOnClickListener {
-            showTermsDialog()
-        }
 
         // Agregar un TextWatcher para convertir automáticamente el texto a mayúsculas
         editTextCURP.addTextChangedListener(object : TextWatcher {
@@ -63,7 +59,7 @@ class MainActivity : AppCompatActivity() {
             // Si se marca o desmarca el CheckBox
             val isChecked = checkBoxTerms.isChecked
             // Puedes realizar acciones basadas en el estado del CheckBox aquí
-            //showTermsDialog()
+            showTermsDialog()
         }
 
         val buttonNoCURP = findViewById<Button>(R.id.buttonNoCURP)
