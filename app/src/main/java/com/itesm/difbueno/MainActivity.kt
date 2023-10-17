@@ -26,6 +26,8 @@ class MainActivity : AppCompatActivity() {
     companion object {
         private const val PREFS_NAME = "MySharedPreferences"
         private const val IS_LOGGED_IN = "isLoggedIn"
+        private const val SAVED_CURP = "savedCURP"
+        private const val LAST_SESSION_SCREEN = "lastSessionScreen"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +38,18 @@ class MainActivity : AppCompatActivity() {
 
         editTextCURP = findViewById(R.id.editTextCURP)
         checkBoxTerms = findViewById(R.id.checkBoxTerms)
+
+        // Cargar el CURP guardado desde SharedPreferences y establecerlo en el EditText
+        val savedCURP = sharedPreferences.getString(SAVED_CURP, "")
+        editTextCURP.setText(savedCURP)
+
+        if (LAST_SESSION_SCREEN == "Nocurp") {
+            // Iniciar NocurpActivity
+            val intent = Intent(this, Nocurp::class.java)
+            startActivity(intent)
+        } else {
+            // La última sesión fue en MainActivity, no es necesario hacer nada más aquí
+        }
 
         // Agregar un TextWatcher para convertir automáticamente el texto a mayúsculas
         editTextCURP.addTextChangedListener(object : TextWatcher {
@@ -74,18 +88,27 @@ class MainActivity : AppCompatActivity() {
             if (checkBoxTerms.isChecked) {
                 val curp = editTextCURP.text.toString()
                 if (curp.isNotEmpty() && isValidCURP(curp)) {
+                    // Guarda el CURP en SharedPreferences
+                    val editor = sharedPreferences.edit()
+                    editor.putString(SAVED_CURP, curp)
+                    editor.putString(LAST_SESSION_SCREEN, "MainActivity") // Guarda el nombre de la pantalla
+                    editor.apply()
+
+                    // Guarda el estado de inicio de sesión
+                    editor.putBoolean(IS_LOGGED_IN, true) // Establece el estado de inicio de sesión en verdadero
+                    editor.apply()
+
+                    // Inicia la actividad CodigoQR
                     val intent = Intent(this, CodigoQR::class.java)
                     // Agregar el CURP como dato extra al intent
                     intent.putExtra("curp", curp)
-                    // La CURP es válida, aquí puedes iniciar sesión con el CURP proporcionado.
-                    Toast.makeText(this, "Iniciando sesión con CURP: $curp", Toast.LENGTH_SHORT).show()
-                    startActivity(intent) // Inicia la actividad CodigoQR
+                    startActivity(intent)
                 } else {
                     Toast.makeText(this, "La CURP ingresada no es válida", Toast.LENGTH_SHORT).show()
                 }
             } else {
                 // Si no se ha aceptado los términos y condiciones, muestra los términos en un cuadro de diálogo
-                Toast.makeText(this, "Acepta los terminos y condiciones", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Acepta los términos y condiciones", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -116,4 +139,23 @@ class MainActivity : AppCompatActivity() {
         }
         dialog.show() // Muestra el cuadro de diálogo
     }
+    fun logout(view: View) {
+        // Accede a SharedPreferences para borrar el CURP y cambiar el estado de inicio de sesión a falso
+        val sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.remove(SAVED_CURP)
+        editor.putBoolean(IS_LOGGED_IN, false)
+        editor.apply()
+
+        // Limpia el campo de CURP
+        editTextCURP.text.clear()
+
+        // Elimina el código QR almacenado
+        val sharedPreferencesManager = SharedPreferencesManager(this)
+        sharedPreferencesManager.removeQRCodeBitmap()
+
+        // Muestra un mensaje de cerrar sesión
+        Toast.makeText(this, "Sesión cerrada", Toast.LENGTH_SHORT).show()
+    }
+
 }

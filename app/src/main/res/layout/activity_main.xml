@@ -105,17 +105,31 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonNoCURP" />
 
     <!-- Botón "Inicia Sesión" -->
+
     <Button
         android:id="@+id/buttonLogin"
         android:layout_width="148dp"
         android:layout_height="57dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:backgroundTint="#d1bfc4"
         android:fontFamily="@font/alfa_slab_one"
         android:text="Inicia Sesión"
         android:textColor="#8F4A8B"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxTerms" />
+
+    <Button
+        android:id="@+id/buttonLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="logout"
+        android:text="Cerrar Sesión"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

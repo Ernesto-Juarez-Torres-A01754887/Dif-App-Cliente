@@ -5,13 +5,13 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-
 
 class Nocurp : AppCompatActivity() {
 
@@ -22,12 +22,29 @@ class Nocurp : AppCompatActivity() {
     private lateinit var editTextCircunstancia: EditText
     private lateinit var checkBoxTerms: CheckBox
     private lateinit var termsTextView: TextView
-    private var termsAccepted = false
 
+    companion object {
+        private const val PREFS_NAME = "MySharedPreferences"
+        private const val IS_LOGGED_IN = "isLoggedIn"
+        private const val NOMBRE = "nombre"
+        private const val APELLIDO = "apellido"
+        private const val EDAD = "edad"
+        private const val GENERO = "genero"
+        private const val CIRCUNSTANCIA = "circunstancia"
+        private const val LAST_SESSION_SCREEN = "lastSessionScreen"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.nocurp)
+
+        val termsLink = findViewById<TextView>(R.id.checkBoxTerms) // Cambia `termsLink` al ID real de tu elemento de interfaz de usuario
+        termsLink.setOnClickListener {
+            // Cuando se hace clic en el elemento de los términos y condiciones, muestra el diálogo
+            showTermsDialog()
+        }
+
+        val sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
 
         editTextNombre = findViewById(R.id.editTextNombre)
         editTextApellido = findViewById(R.id.editTextApellido)
@@ -36,26 +53,32 @@ class Nocurp : AppCompatActivity() {
         editTextCircunstancia = findViewById(R.id.editTextCircunstancia)
         checkBoxTerms = findViewById(R.id.checkBoxTerms)
 
+        // Cargar la información guardada desde SharedPreferences y establecerla en los EditTexts
+        editTextNombre.setText(sharedPreferences.getString(NOMBRE, ""))
+        editTextApellido.setText(sharedPreferences.getString(APELLIDO, ""))
+        editTextEdad.setText(sharedPreferences.getString(EDAD, ""))
+        editTextGenero.setText(sharedPreferences.getString(GENERO, ""))
+        editTextCircunstancia.setText(sharedPreferences.getString(CIRCUNSTANCIA, ""))
 
         checkBoxTerms.setOnClickListener {
             // Si se marca o desmarca el CheckBox
             val isChecked = checkBoxTerms.isChecked
             // Puedes realizar acciones basadas en el estado del CheckBox aquí
         }
-        // Dentro de la función onCreate de la actividad Nocurp
-        val textViewTerms = findViewById<TextView>(R.id.checkBoxTerms)
-        textViewTerms.setOnClickListener {
-            showTermsDialog()
-        }
-
-        checkBoxTerms.setOnCheckedChangeListener { _, isChecked ->
-            termsAccepted = isChecked
-        }
-
 
         val buttonRegistro = findViewById<Button>(R.id.buttonRegistro)
         buttonRegistro.setOnClickListener {
             if (areFieldsValid()) {
+                // Guarda la información ingresada en SharedPreferences
+                val editor = sharedPreferences.edit()
+                editor.putString(NOMBRE, editTextNombre.text.toString())
+                editor.putString(APELLIDO, editTextApellido.text.toString())
+                editor.putString(EDAD, editTextEdad.text.toString())
+                editor.putString(GENERO, editTextGenero.text.toString())
+                editor.putString(CIRCUNSTANCIA, editTextCircunstancia.text.toString())
+                editor.putString(LAST_SESSION_SCREEN, "Nocurp") // Guarda el nombre de la pantalla
+                editor.apply()
+
                 // Realiza acciones de registro aquí
                 // ...
 
@@ -76,8 +99,6 @@ class Nocurp : AppCompatActivity() {
             }
         }
     }
-
-
 
     private fun areFieldsValid(): Boolean {
         val nombre = editTextNombre.text.toString()
@@ -102,4 +123,38 @@ class Nocurp : AppCompatActivity() {
         }
         dialog.show()
     }
+
+    fun logout(view: View) {
+        // Accede a SharedPreferences para borrar cualquier dato de sesión o preferencias que desees
+        val sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.remove(NOMBRE)
+        editor.remove(APELLIDO)
+        editor.remove(EDAD)
+        editor.remove(GENERO)
+        editor.remove(CIRCUNSTANCIA)
+        editor.putBoolean(IS_LOGGED_IN, false)
+
+        // Llama a la función para eliminar el código QR
+        val sharedPreferencesManager = SharedPreferencesManager(this)
+        sharedPreferencesManager.removeQRCodeBitmap()
+
+
+        editor.apply()
+
+        // Limpia los campos de nombre, apellido, etc., si es necesario
+        editTextNombre.text.clear()
+        editTextApellido.text.clear()
+        editTextEdad.text.clear()
+        editTextGenero.text.clear()
+        editTextCircunstancia.text.clear()
+
+        // Muestra un mensaje de cierre de sesión
+        Toast.makeText(this, "Sesión cerrada", Toast.LENGTH_SHORT).show()
+
+        // Luego, puedes redirigir al usuario a la pantalla de inicio de sesión, por ejemplo, MainActivity
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+    }
+
 }

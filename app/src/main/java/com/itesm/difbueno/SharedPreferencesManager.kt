@@ -30,4 +30,12 @@ class SharedPreferencesManager(context: Context) {
             null
         }
     }
+
+    fun removeQRCodeBitmap() {
+        val editor = sharedPrefs.edit()
+        editor.remove("qrCodeBitmap") // Elimina la entrada del código QR
+        editor.apply()
+    }
+
+
 }
