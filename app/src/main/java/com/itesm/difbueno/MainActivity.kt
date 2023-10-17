@@ -22,9 +22,16 @@ class MainActivity : AppCompatActivity() {
     private lateinit var editTextCURP: EditText
     private lateinit var checkBoxTerms: CheckBox
 
+    companion object {
+        private const val PREFS_NAME = "MySharedPreferences"
+        private const val IS_LOGGED_IN = "isLoggedIn"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
 
         editTextCURP = findViewById(R.id.editTextCURP)
         checkBoxTerms = findViewById(R.id.checkBoxTerms)

@@ -59,7 +59,6 @@ class Nocurp : AppCompatActivity() {
                 intent.putExtra("genero", editTextGenero.text.toString())
                 intent.putExtra("circunstancia", editTextCircunstancia.text.toString())
                 startActivity(intent)
-                finish() // Cierra la actividad actual (Nocurp)
             } else {
                 // Muestra un mensaje de error si los campos no están llenos
                 Toast.makeText(this, "Por favor, complete todos los campos y acepte los términos y condiciones", Toast.LENGTH_SHORT).show()
@@ -88,7 +87,5 @@ class Nocurp : AppCompatActivity() {
         closeButton.setOnClickListener {
             dialog.dismiss()
         }
-
-        dialog.show()
     }
 }
