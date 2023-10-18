@@ -1,4 +1,4 @@
-package com.itesm.difbueno
+package com.itesm.difbueno.Model
 
 import android.content.Intent
 import android.net.Uri
@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.itesm.difbueno.View.MenuDifActivity
+import com.itesm.difbueno.R
 
 
 class EncuestaSatisfaccion : AppCompatActivity() {

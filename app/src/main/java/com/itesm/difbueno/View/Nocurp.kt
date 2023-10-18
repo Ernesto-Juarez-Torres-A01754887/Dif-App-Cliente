@@ -1,4 +1,4 @@
-package com.itesm.difbueno
+package com.itesm.difbueno.View
 
 import android.app.Dialog
 import android.content.Intent
@@ -11,6 +11,8 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.itesm.difbueno.R
+import com.itesm.difbueno.ViewModel.CodigoQR
 
 class Nocurp : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package com.itesm.difbueno
+package com.itesm.difbueno.Model
 
 import android.content.Context
 import android.content.SharedPreferences

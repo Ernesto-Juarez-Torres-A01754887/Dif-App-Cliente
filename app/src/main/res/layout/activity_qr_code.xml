@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     android:padding="16dp"
-    tools:context=".CodigoQR">
+    tools:context=".ViewModel.CodigoQR">
 
 
     <!-- Añadir el TextView con el título -->

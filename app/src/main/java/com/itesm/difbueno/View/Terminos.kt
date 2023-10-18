@@ -1,4 +1,4 @@
-package com.itesm.difbueno
+package com.itesm.difbueno.View
 
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import com.itesm.difbueno.R
 
 class Terminos: DialogFragment() {
 

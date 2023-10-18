@@ -1,10 +1,15 @@
-package com.itesm.difbueno
+package com.itesm.difbueno.View
 
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.itesm.difbueno.ViewModel.MapaComedor
+import com.itesm.difbueno.Model.DerechosObligaciones
+import com.itesm.difbueno.Model.EncuestaSatisfaccion
+import com.itesm.difbueno.R
+import com.itesm.difbueno.ViewModel.CodigoQR
 
 
 class MenuDifActivity : AppCompatActivity() {

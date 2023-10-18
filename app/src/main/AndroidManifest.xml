@@ -15,7 +15,7 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".MainActivity"
+            android:name=".View.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,30 +25,30 @@
         </activity>
 
         <activity
-            android:name=".Nocurp">
+            android:name=".View.Nocurp">
             <!-- Agregar más configuración si es necesario -->
         </activity>
 
         <activity
-            android:name=".CodigoQR">
+            android:name=".ViewModel.CodigoQR">
             <!-- Agregar más configuración si es necesario -->
         </activity>
 
         <activity
-            android:name=".MenuDifActivity">
+            android:name=".View.MenuDifActivity">
 
         </activity>
         <activity
-            android:name=".EncuestaSatisfaccion">
+            android:name=".Model.EncuestaSatisfaccion">
 
         </activity>
         <activity
-            android:name=".MapaComedor">
+            android:name=".ViewModel.MapaComedor">
 
         </activity>
 
         <activity
-            android:name=".DerechosObligaciones">
+            android:name=".Model.DerechosObligaciones">
 
         </activity>
 

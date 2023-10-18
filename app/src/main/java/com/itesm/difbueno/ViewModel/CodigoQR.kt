@@ -1,4 +1,4 @@
-package com.itesm.difbueno
+package com.itesm.difbueno.ViewModel
 
 import android.content.Intent
 import android.graphics.Bitmap
@@ -11,6 +11,9 @@ import com.google.zxing.BarcodeFormat
 import com.google.zxing.MultiFormatWriter
 import com.google.zxing.common.BitMatrix
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.itesm.difbueno.R
+import com.itesm.difbueno.Model.SharedPreferencesManager
+import com.itesm.difbueno.View.MenuDifActivity
 
 class CodigoQR : AppCompatActivity() {
     private var qrCodeBitmap: Bitmap? = null

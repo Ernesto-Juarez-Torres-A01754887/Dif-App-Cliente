@@ -1,9 +1,11 @@
-package com.itesm.difbueno
+package com.itesm.difbueno.Model
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.itesm.difbueno.View.MenuDifActivity
+import com.itesm.difbueno.R
 
 class DerechosObligaciones : AppCompatActivity() {
 
