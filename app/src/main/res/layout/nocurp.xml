@@ -40,12 +40,26 @@
 
         <!-- Nombre -->
         <EditText
+            android:id="@+id/editTextApellido"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="#FFFFFF"
+            android:gravity="center_vertical"
+            android:hint="Apellido Paterno"
+            android:inputType="text"
+            android:textColor="#050607"
+            android:textColorHint="#f6c351"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextNombre" />
+
+        <EditText
             android:id="@+id/editTextNombre"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:background="#FFFFFF"
-
             android:gravity="center_vertical"
             android:hint="Nombre"
             android:inputType="text"
@@ -57,73 +71,54 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <!-- Apellido -->
+
+        <!-- Apellido Materno -->
         <EditText
-            android:id="@+id/editTextApellido"
+            android:id="@+id/editTextApellidoMaterno"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:background="#FFFFFF"
-
             android:gravity="center_vertical"
-            android:hint="Apellido"
+            android:hint="Apellido Materno"
             android:inputType="text"
             android:textColor="#050607"
             android:textColorHint="#f6c351"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextNombre" />
-
-        <!-- Edad -->
-        <EditText
-            android:id="@+id/editTextEdad"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:background="#FFFFFF"
-
-            android:gravity="center_vertical"
-            android:hint="Edad"
-            android:inputType="number"
-            android:textColor="#050607"
-            android:textColorHint="#8f4a8b"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextApellido" />
 
-        <!-- Género -->
+        <!-- Sexo -->
         <EditText
-            android:id="@+id/editTextGenero"
+            android:id="@+id/editTextSexo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:background="#FFFFFF"
-
             android:gravity="center_vertical"
-            android:hint="Género"
+            android:hint="Sexo"
             android:inputType="text"
             android:textColor="#050607"
             android:textColorHint="#5ab139"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextEdad" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextApellidoMaterno" />
 
-        <!-- Circunstancia (MultiAutoCompleteTextView para párrafos) -->
-        <MultiAutoCompleteTextView
-            android:id="@+id/editTextCircunstancia"
+        <!-- Fecha de Nacimiento -->
+        <EditText
+            android:id="@+id/editTextFechaNacimiento"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:background="#FFFFFF"
-
-            android:gravity="start|top"
-            android:hint="Circunstancia"
-            android:inputType="textMultiLine"
-            android:minLines="3"
+            android:gravity="center_vertical"
+            android:hint="Fecha de Nacimiento"
+            android:inputType="text"
             android:textColor="#050607"
             android:textColorHint="#eb5a56"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextGenero" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextSexo" />
 
         <!-- CheckBox para aceptar términos y condiciones -->
         <CheckBox
@@ -136,19 +131,20 @@
             android:clickable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextCircunstancia" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextFechaNacimiento" />
 
+        <!-- Botón "Registro" -->
         <Button
             android:id="@+id/buttonRegistro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="76dp"
+            android:layout_marginTop="24dp"
             android:text="Registro"
             android:backgroundTint="#199fc8"
             android:textColor="#fefefe"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextCircunstancia" />
+            app:layout_constraintTop_toBottomOf="@+id/checkBoxTerms" />
 
         <!-- Botón "Cerrar Sesión" -->
         <Button

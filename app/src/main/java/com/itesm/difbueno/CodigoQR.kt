@@ -44,23 +44,18 @@ class CodigoQR : AppCompatActivity() {
         } ?: run {
             // Si no hay código QR en SharedPreferences, genera uno
             val curp = intent.getStringExtra("curp")
-            val nombre = intent.getStringExtra("nombre")
             val apellido = intent.getStringExtra("apellido")
-            val edad = intent.getStringExtra("edad")
-            val genero = intent.getStringExtra("genero")
-            val circunstancia = intent.getStringExtra("circunstancia")
+            val apellidoMaterno = intent.getStringExtra("apellidoMaterno")
+            val nombre = intent.getStringExtra("nombre")
+            val sexo = intent.getStringExtra("genero")
+            val fechaNacimiento = intent.getStringExtra("fechaNacimiento")
 
             if (curp != null) {
-                qrCodeBitmap = generateQRCode(curp)
-            } else if (nombre != null && apellido != null && edad != null && genero != null && circunstancia != null) {
-                val dataList = mutableListOf<String>()
-                nombre?.let { dataList.add(it) }
-                apellido?.let { dataList.add(it) }
-                edad?.let { dataList.add(it) }
-                genero?.let { dataList.add(it) }
-                circunstancia?.let { dataList.add(it) }
-
-                val data = dataList.joinToString(",")
+                val data = "$curp||desconocido|desconocido|desconocido|desconocido|desconocido|desconocido|desconocido|"
+                qrCodeBitmap = generateQRCode(data)
+            } else if (apellido != null && apellidoMaterno != null && nombre != null &&
+                sexo != null && fechaNacimiento != null) {
+                val data = "desconocido||$apellido|$apellidoMaterno|$nombre|$sexo|$fechaNacimiento|desconocido|desconocido|"
                 qrCodeBitmap = generateQRCode(data)
             }
 
@@ -78,9 +73,6 @@ class CodigoQR : AppCompatActivity() {
             }
         }
     }
-
-
-
 
     private fun generateQRCode(data: String): Bitmap {
         val multiFormatWriter = MultiFormatWriter()

@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
@@ -43,14 +44,6 @@ class MainActivity : AppCompatActivity() {
         val savedCURP = sharedPreferences.getString(SAVED_CURP, "")
         editTextCURP.setText(savedCURP)
 
-        if (LAST_SESSION_SCREEN == "Nocurp") {
-            // Iniciar NocurpActivity
-            val intent = Intent(this, Nocurp::class.java)
-            startActivity(intent)
-        } else {
-            // La última sesión fue en MainActivity, no es necesario hacer nada más aquí
-        }
-
         // Agregar un TextWatcher para convertir automáticamente el texto a mayúsculas
         editTextCURP.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -78,6 +71,10 @@ class MainActivity : AppCompatActivity() {
 
         val buttonNoCURP = findViewById<Button>(R.id.buttonNoCURP)
         buttonNoCURP.setOnClickListener {
+            // Guarda la información que indica que la última pantalla fue "Nocurp"
+            val editor = sharedPreferences.edit()
+            editor.putString(LAST_SESSION_SCREEN, "Nocurp")
+            editor.apply()
             // Inicia la actividad NoCURPActivity
             val intent = Intent(this, Nocurp::class.java)
             startActivity(intent)
@@ -103,6 +100,8 @@ class MainActivity : AppCompatActivity() {
                     // Agregar el CURP como dato extra al intent
                     intent.putExtra("curp", curp)
                     startActivity(intent)
+                    // Cierra la actividad MainActivity para bloquear el regreso
+                    finish()
                 } else {
                     Toast.makeText(this, "La CURP ingresada no es válida", Toast.LENGTH_SHORT).show()
                 }
