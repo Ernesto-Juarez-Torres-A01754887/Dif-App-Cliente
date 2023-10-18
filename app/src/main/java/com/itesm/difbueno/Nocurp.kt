@@ -2,6 +2,7 @@ package com.itesm.difbueno
 
 import android.app.Dialog
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -17,12 +18,12 @@ class Nocurp : AppCompatActivity() {
     private lateinit var editTextNombre: EditText
     private lateinit var editTextApellido: EditText
     private lateinit var editTextApellidoMaterno: EditText
-    //private lateinit var editTextEdad: EditText
     private lateinit var editTextGenero: EditText
     private lateinit var editTextFechaNacimiento: EditText
     private lateinit var checkBoxTerms: CheckBox
     private lateinit var termsTextView: TextView
     private var termsAccepted = false
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +35,23 @@ class Nocurp : AppCompatActivity() {
         editTextGenero = findViewById(R.id.editTextSexo)
         editTextFechaNacimiento = findViewById(R.id.editTextFechaNacimiento)
         checkBoxTerms = findViewById(R.id.checkBoxTerms)
+        sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE)
+
+        // Recuperar datos guardados en SharedPreferences
+        val nombre = sharedPreferences.getString("nombre", "")
+        val apellido = sharedPreferences.getString("apellido", "")
+        val apellidoMaterno = sharedPreferences.getString("apellidoMaterno", "")
+        val genero = sharedPreferences.getString("genero", "")
+        val fechaNacimiento = sharedPreferences.getString("fechaNacimiento", "")
+        val termsAccepted = sharedPreferences.getBoolean("termsAccepted", false)
+
+        // Establecer los valores en los EditText
+        editTextNombre.setText(nombre)
+        editTextApellido.setText(apellido)
+        editTextApellidoMaterno.setText(apellidoMaterno)
+        editTextGenero.setText(genero)
+        editTextFechaNacimiento.setText(fechaNacimiento)
+        checkBoxTerms.isChecked = termsAccepted
 
         checkBoxTerms.setOnClickListener {
             // Si se marca o desmarca el CheckBox
@@ -47,7 +65,8 @@ class Nocurp : AppCompatActivity() {
         }
 
         checkBoxTerms.setOnCheckedChangeListener { _, isChecked ->
-            termsAccepted = isChecked
+            // Guardar el estado del CheckBox en SharedPreferences
+            sharedPreferences.edit().putBoolean("termsAccepted", isChecked).apply()
         }
 
         val buttonRegistro = findViewById<Button>(R.id.buttonRegistro)
@@ -56,21 +75,39 @@ class Nocurp : AppCompatActivity() {
                 // Realiza acciones de registro aquí
                 // ...
 
+                // Guardar los datos en SharedPreferences
+                sharedPreferences.edit()
+                    .putString("nombre", editTextNombre.text.toString())
+                    .putString("apellido", editTextApellido.text.toString())
+                    .putString("apellidoMaterno", editTextApellidoMaterno.text.toString())
+                    .putString("genero", editTextGenero.text.toString())
+                    .putString("fechaNacimiento", editTextFechaNacimiento.text.toString())
+                    .apply()
+
                 // Muestra un mensaje de registro exitoso
                 Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show()
 
                 // Luego, puedes redirigir al usuario a la actividad CodigoQR
                 val intent = Intent(this, CodigoQR::class.java)
-                intent.putExtra("nombre", editTextNombre.text.toString())
-                intent.putExtra("apellido", editTextApellido.text.toString())
-                intent.putExtra("apellidoMaterno", editTextApellidoMaterno.text.toString())
-                intent.putExtra("genero", editTextGenero.text.toString())
-                intent.putExtra("fechaNacimiento", editTextFechaNacimiento.text.toString())
                 startActivity(intent)
             } else {
                 // Muestra un mensaje de error si los campos no están llenos
                 Toast.makeText(this, "Por favor, complete todos los campos y acepte los términos y condiciones", Toast.LENGTH_SHORT).show()
             }
+        }
+        // Agregar un botón de cierre de sesión y su OnClickListener
+        val buttonCerrarSesion = findViewById<Button>(R.id.buttonLogout)
+        buttonCerrarSesion.setOnClickListener {
+            // Borra los datos guardados en SharedPreferences
+            sharedPreferences.edit().clear().apply()
+            // Establece el estado de inicio de sesión en falso
+            sharedPreferences.edit().putBoolean("isLoggedIn", false).apply()
+            // Elimina el código QR generado
+
+            // Redirige al usuario a MainActivity
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish() // Cierra la actividad actual
         }
     }
 
@@ -97,4 +134,5 @@ class Nocurp : AppCompatActivity() {
         }
         dialog.show()
     }
+
 }
