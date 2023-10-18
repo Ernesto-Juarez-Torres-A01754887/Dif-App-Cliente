@@ -95,13 +95,5 @@ class CodigoQR : AppCompatActivity() {
             throw RuntimeException("Error al generar el código QR", e)
         }
     }
-    private fun deleteQRCode() {
-        // Elimina el código QR almacenado en SharedPreferences
-        val sharedPreferencesManager = SharedPreferencesManager(this)
-        sharedPreferencesManager.removeQRCodeBitmap()
 
-        // También puedes borrar el código QR de la vista ImageView
-        val imageViewQRCode = findViewById<ImageView>(R.id.qrCodeImageView)
-        imageViewQRCode.setImageBitmap(null)
-    }
 }

@@ -49,12 +49,19 @@ class MenuDifActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        buttonSalir.setOnClickListener {
+        //buttonSalir.setOnClickListener {
             // Lógica para manejar el clic en el botón "Salir"
             //val intent = Intent(Intent.ACTION_MAIN)
             //intent.addCategory(Intent.CATEGORY_HOME)
             //intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             //startActivity(intent)
+        //}
+        buttonSalir.setOnClickListener {
+            //finish() // Cierra la actividad actual
+            //moveTaskToBack(true) // Mueve la aplicación a segundo plano
+            //android.os.Process.killProcess(android.os.Process.myPid()) // Mata el proceso de la aplicación
+            //System.exit(1) // Finaliza todos los hilos de la aplicación
         }
+
     }
 }
