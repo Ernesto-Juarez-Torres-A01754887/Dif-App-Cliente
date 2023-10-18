@@ -16,9 +16,9 @@ import android.widget.EditText
 import android.widget.Toast
 import com.itesm.difbueno.R
 import com.itesm.difbueno.Model.SharedPreferencesManager
-import com.itesm.difbueno.ViewModel.CodigoQR
+import com.itesm.difbueno.ViewModel.generar_qr
 
-class MainActivity : AppCompatActivity() {
+class inicia_sesion_curp : AppCompatActivity() {
 
     private lateinit var editTextCURP: EditText
     private lateinit var checkBoxTerms: CheckBox
@@ -71,12 +71,12 @@ class MainActivity : AppCompatActivity() {
 
         val buttonNoCURP = findViewById<Button>(R.id.buttonNoCURP)
         buttonNoCURP.setOnClickListener {
-            // Guarda la información que indica que la última pantalla fue "Nocurp"
+            // Guarda la información que indica que la última pantalla fue "no_curp"
             val editor = sharedPreferences.edit()
-            editor.putString(LAST_SESSION_SCREEN, "Nocurp")
+            editor.putString(LAST_SESSION_SCREEN, "no_curp")
             editor.apply()
             // Inicia la actividad NoCURPActivity
-            val intent = Intent(this, Nocurp::class.java)
+            val intent = Intent(this, no_curp::class.java)
             startActivity(intent)
         }
 
@@ -88,19 +88,19 @@ class MainActivity : AppCompatActivity() {
                     // Guarda el CURP en SharedPreferences
                     val editor = sharedPreferences.edit()
                     editor.putString(SAVED_CURP, curp)
-                    editor.putString(LAST_SESSION_SCREEN, "MainActivity") // Guarda el nombre de la pantalla
+                    editor.putString(LAST_SESSION_SCREEN, "inicia_sesion_curp") // Guarda el nombre de la pantalla
                     editor.apply()
 
                     // Guarda el estado de inicio de sesión
                     editor.putBoolean(IS_LOGGED_IN, true) // Establece el estado de inicio de sesión en verdadero
                     editor.apply()
 
-                    // Inicia la actividad CodigoQR
-                    val intent = Intent(this, CodigoQR::class.java)
+                    // Inicia la actividad generar_qr
+                    val intent = Intent(this, generar_qr::class.java)
                     // Agregar el CURP como dato extra al intent
                     intent.putExtra("curp", curp)
                     startActivity(intent)
-                    // Cierra la actividad MainActivity para bloquear el regreso
+                    // Cierra la actividad inicia_sesion_curp para bloquear el regreso
                     finish()
                 } else {
                     Toast.makeText(this, "La CURP ingresada no es válida", Toast.LENGTH_SHORT).show()

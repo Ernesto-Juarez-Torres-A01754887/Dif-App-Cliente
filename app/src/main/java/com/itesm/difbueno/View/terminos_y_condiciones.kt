@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import com.itesm.difbueno.R
 
-class Terminos: DialogFragment() {
+class terminos_y_condiciones: DialogFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,

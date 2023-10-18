@@ -12,9 +12,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.itesm.difbueno.R
-import com.itesm.difbueno.ViewModel.CodigoQR
+import com.itesm.difbueno.ViewModel.generar_qr
 
-class Nocurp : AppCompatActivity() {
+class no_curp : AppCompatActivity() {
 
     private lateinit var editTextNombre: EditText
     private lateinit var editTextApellido: EditText
@@ -61,8 +61,8 @@ class Nocurp : AppCompatActivity() {
                 // Muestra un mensaje de registro exitoso
                 Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show()
 
-                // Luego, puedes redirigir al usuario a la actividad CodigoQR
-                val intent = Intent(this, CodigoQR::class.java)
+                // Luego, puedes redirigir al usuario a la actividad generar_qr
+                val intent = Intent(this, generar_qr::class.java)
                 intent.putExtra("nombre", editTextNombre.text.toString())
                 intent.putExtra("apellido", editTextApellido.text.toString())
                 intent.putExtra("apellidoMaterno", editTextApellidoMaterno.text.toString())

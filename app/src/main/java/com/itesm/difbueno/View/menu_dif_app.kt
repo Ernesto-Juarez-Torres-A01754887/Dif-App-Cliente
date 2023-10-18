@@ -5,14 +5,14 @@ import android.graphics.Bitmap
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.itesm.difbueno.ViewModel.MapaComedor
-import com.itesm.difbueno.Model.DerechosObligaciones
-import com.itesm.difbueno.Model.EncuestaSatisfaccion
+import com.itesm.difbueno.ViewModel.mapa_comedores_dif
+import com.itesm.difbueno.Model.derechos_y_obligaciones_comensal
+import com.itesm.difbueno.Model.encuesta_de_satisfaccion
 import com.itesm.difbueno.R
-import com.itesm.difbueno.ViewModel.CodigoQR
+import com.itesm.difbueno.ViewModel.generar_qr
 
 
-class MenuDifActivity : AppCompatActivity() {
+class menu_dif_app : AppCompatActivity() {
     // Declarar una constante para manejar el resultado del código QR
     companion object {
         const val QR_CODE_REQUEST = 1
@@ -32,25 +32,25 @@ class MenuDifActivity : AppCompatActivity() {
 
 
         buttonQR.setOnClickListener {
-                val intent = Intent(this, CodigoQR::class.java)
+                val intent = Intent(this, generar_qr::class.java)
                 startActivity(intent)
         }
 
         buttonMapa.setOnClickListener {
             // Lógica para manejar el clic en el botón "Mapa"
-            val intent = Intent(this, MapaComedor::class.java)
+            val intent = Intent(this, mapa_comedores_dif::class.java)
             startActivity(intent)
         }
 
         buttonEncuesta.setOnClickListener {
             // Configura la intención para iniciar EncuestaActivity
-            val intent = Intent(this, EncuestaSatisfaccion::class.java)
+            val intent = Intent(this, encuesta_de_satisfaccion::class.java)
             startActivity(intent)
         }
 
         buttonDerechosObligaciones.setOnClickListener {
             // Lógica para manejar el clic en el botón "Mapa"
-            val intent = Intent(this, DerechosObligaciones::class.java)
+            val intent = Intent(this, derechos_y_obligaciones_comensal::class.java)
             startActivity(intent)
         }
 
@@ -63,9 +63,9 @@ class MenuDifActivity : AppCompatActivity() {
         //}
         buttonSalir.setOnClickListener {
             //finish() // Cierra la actividad actual
-            //moveTaskToBack(true) // Mueve la aplicación a segundo plano
-            //android.os.Process.killProcess(android.os.Process.myPid()) // Mata el proceso de la aplicación
-            //System.exit(1) // Finaliza todos los hilos de la aplicación
+            moveTaskToBack(true) // Mueve la aplicación a segundo plano
+            android.os.Process.killProcess(android.os.Process.myPid()) // Mata el proceso de la aplicación
+            System.exit(1) // Finaliza todos los hilos de la aplicación
         }
 
     }

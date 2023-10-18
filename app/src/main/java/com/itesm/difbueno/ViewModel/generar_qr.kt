@@ -13,9 +13,9 @@ import com.google.zxing.common.BitMatrix
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.itesm.difbueno.R
 import com.itesm.difbueno.Model.SharedPreferencesManager
-import com.itesm.difbueno.View.MenuDifActivity
+import com.itesm.difbueno.View.menu_dif_app
 
-class CodigoQR : AppCompatActivity() {
+class generar_qr : AppCompatActivity() {
     private var qrCodeBitmap: Bitmap? = null
     private lateinit var sharedPreferencesManager: SharedPreferencesManager
 
@@ -29,7 +29,7 @@ class CodigoQR : AppCompatActivity() {
 
         floatingActionButton.setOnClickListener {
             // Navega a la actividad menu_dif
-            val intent = Intent(this@CodigoQR, MenuDifActivity::class.java)
+            val intent = Intent(this@generar_qr, menu_dif_app::class.java)
             startActivity(intent)
         }
     }

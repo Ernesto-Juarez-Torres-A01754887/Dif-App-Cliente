@@ -6,11 +6,11 @@ import android.os.Bundle
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.itesm.difbueno.View.MenuDifActivity
+import com.itesm.difbueno.View.menu_dif_app
 import com.itesm.difbueno.R
 
 
-class EncuestaSatisfaccion : AppCompatActivity() {
+class encuesta_de_satisfaccion : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +20,7 @@ class EncuestaSatisfaccion : AppCompatActivity() {
 
         floatingActionButton.setOnClickListener {
             // Navega a la actividad menu_dif
-            val intent = Intent(this@EncuestaSatisfaccion, MenuDifActivity::class.java)
+            val intent = Intent(this@encuesta_de_satisfaccion, menu_dif_app::class.java)
             startActivity(intent)
         }
 

@@ -4,10 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.itesm.difbueno.View.MenuDifActivity
+import com.itesm.difbueno.View.menu_dif_app
 import com.itesm.difbueno.R
 
-class DerechosObligaciones : AppCompatActivity() {
+class derechos_y_obligaciones_comensal : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,7 +17,7 @@ class DerechosObligaciones : AppCompatActivity() {
         val buttonRegresarMenu = findViewById<Button>(R.id.buttonRegresarMenu)
 
         buttonRegresarMenu.setOnClickListener {
-            val intent = Intent(this, MenuDifActivity::class.java)
+            val intent = Intent(this, menu_dif_app::class.java)
             startActivity(intent)
             finish() // Esto cierra la actividad actual y vuelve al menú
         }

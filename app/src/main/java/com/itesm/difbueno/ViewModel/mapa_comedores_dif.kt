@@ -7,9 +7,9 @@ import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.itesm.difbueno.R
-import com.itesm.difbueno.View.MenuDifActivity
+import com.itesm.difbueno.View.menu_dif_app
 
-class MapaComedor : AppCompatActivity() {
+class mapa_comedores_dif : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mapa_comedores)
@@ -26,7 +26,7 @@ class MapaComedor : AppCompatActivity() {
 
         floatingActionButton.setOnClickListener {
             // Navega a la actividad menu_dif
-            val intent = Intent(this@MapaComedor, MenuDifActivity::class.java)
+            val intent = Intent(this@mapa_comedores_dif, menu_dif_app::class.java)
             startActivity(intent)
         }
     }
