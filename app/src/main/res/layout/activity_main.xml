@@ -100,7 +100,7 @@
             android:fontFamily="@font/alfa_slab_one"
             android:text="Acepto los Términos y condiciones"
             android:textColor="#BA00FF"
-            android:textSize="16sp"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/buttonNoCURP" />
@@ -111,7 +111,7 @@
             android:layout_width="350dp"
             android:layout_height="47dp"
             android:layout_marginTop="32dp"
-            android:backgroundTint="#B99AEC58"
+            android:backgroundTint="#9EBEF593"
             android:text="Inicia Sesión"
             android:textColor="#0E0E0E"
             android:textSize="18sp"
