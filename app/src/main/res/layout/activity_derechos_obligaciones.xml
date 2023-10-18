@@ -125,17 +125,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:text="g) Cumplir con lo dispuesto en el presente instrumento normativo;" />
+
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Regresar al Menú"
+                android:id="@+id/buttonRegresarMenu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
                 android:backgroundTint="#1976D2"
+                android:text="Regresar al Menú"
                 android:textColor="#fefefe"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginBottom="16dp"
-                android:id="@+id/buttonRegresarMenu" />
+                app:layout_constraintStart_toStartOf="parent" />
 
         </LinearLayout>
     </ScrollView>
