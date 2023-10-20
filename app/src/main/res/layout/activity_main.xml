@@ -125,7 +125,7 @@
             android:id="@+id/buttonLogout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="128dp"
+            android:layout_marginTop="48dp"
             android:backgroundTint="#D2DEC8"
             android:onClick="logout"
             android:text="Cerrar Sesión"
